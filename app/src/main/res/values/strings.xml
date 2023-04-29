@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 17_login_screen_01 strings -->
+
+    <string name="app_name">FarmEase</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="don_t_have_an_account__join_us_string">Dont have an account? Join us</string>
+    <string name="login_string">Login</string>
+    <string name="itsmemamun1_gmail_com_string">itsmemamun1@gmail.com</string>
+    <string name="welcome_back_string">Welcome back</string>
+    <string name="you_can_search_c_ourse__apply_course_and_find_scholarship_for_abroad_studies_string">You can search c ourse, apply course and find scholarship for abroad studies</string>
+
+    <string name="have_an_account__log_in_string">Have an account? Log in</string>
+    <string name="sign_up_string">Sign up</string>
+    <string name="name_string">Name</string>
+    <string name="email_ek1_string">Email</string>
+    <string name="password_ek2_string">Password</string>
+    <string name="i_agree_with_the_terms_of_service___privacy_policy_string">I agree with the Terms of Service &amp; Privacy Policy</string>
+    <string name="join_us_to_start_earning_string">Join us to start earning</string>
+    <string name="farmease_organizes__manages_and_advises_your_agriculture_related_business_for_you__string">FarmEase organizes, manages and advises your agriculture related business for you.</string>
+</resources>
