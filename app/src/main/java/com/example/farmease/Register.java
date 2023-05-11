@@ -87,7 +87,7 @@ public class Register extends AppCompatActivity {
                     userInfo.put("UserEmail",binding.emailText.getText().toString());
 
 
-                    if(switchState == true)
+                    if(switchState == false)
                     {
                         userInfo.put("isEngineer", "0");
                     }
@@ -111,7 +111,7 @@ public class Register extends AppCompatActivity {
         }
 
     }
-    public void goToLogin(View View)
+    public void goToLogin(View View )
     {
         Intent intent = new Intent(Register.this , MainActivity.class);
         startActivity(intent);

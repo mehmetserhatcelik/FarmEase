@@ -25,4 +25,17 @@ public class MainScreen extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void goFields(View view)
+    {
+        Intent intent = new Intent(MainScreen.this, AddField.class);
+        startActivity(intent);
+        finish();
+    }
+    public void goMap(View view)
+    {
+        Intent intent = new Intent(MainScreen.this, AddField.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

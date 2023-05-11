@@ -18,4 +18,5 @@
     <string name="i_agree_with_the_terms_of_service___privacy_policy_string">I agree with the Terms of Service &amp; Privacy Policy</string>
     <string name="join_us_to_start_earning_string">Join us to start earning</string>
     <string name="farmease_organizes__manages_and_advises_your_agriculture_related_business_for_you__string">FarmEase organizes, manages and advises your agriculture related business for you.</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
