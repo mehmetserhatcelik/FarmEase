@@ -49,21 +49,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="156dp"
-        android:onClick="goFields"
+        android:onClick="goAddFields"
         android:text="add field"
         app:layout_constraintBottom_toTopOf="@+id/goMessages"
         app:layout_constraintStart_toStartOf="@+id/goMessages" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="116dp"
-        android:layout_height="0dp"
+        android:layout_width="127dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="214dp"
-        android:onClick="goMap"
-        android:text="Button"
+        android:onClick="goFields"
+        android:text="Fields"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/goMessages"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="CoarseFineLocation">
+    tools:ignore="CoarseFineLocation" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -29,8 +29,17 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD91dM9YogdDSbgCQEu35Gb9_s92ZQJlHA" />
+            android:value="YOUR_API_KEY" />
 
+        <activity
+            android:name=".FieldInfo"
+            android:exported="false" />
+        <activity
+            android:name=".Fields"
+            android:exported="false" />
+        <activity
+            android:name=".Suggestion"
+            android:exported="false" />
         <activity
             android:name=".AddField"
             android:exported="false" />

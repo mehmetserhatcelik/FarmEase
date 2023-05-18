@@ -4,12 +4,13 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -33,7 +34,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.GeoPoint;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class AddField extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
+public class AddField extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
 
     private GoogleMap mMap;
     private FirebaseFirestore fstore;
@@ -52,7 +52,7 @@ public class AddField extends FragmentActivity implements OnMapReadyCallback, Go
 
     private double longitude;
     private double latitude;
-
+    private String cityName;
 
 
     ActivityResultLauncher<String> permissionLauncher;
@@ -65,8 +65,7 @@ public class AddField extends FragmentActivity implements OnMapReadyCallback, Go
      setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map2);
         mapFragment.getMapAsync(this);
         registerLauncher();
         fstore = FirebaseFirestore.getInstance();
@@ -80,6 +79,7 @@ public class AddField extends FragmentActivity implements OnMapReadyCallback, Go
         CollectionReference cf = fstore.collection("Users").document(user.getUid()).collection("Fields");
 
         Map<String,Object> fieldInfo = new HashMap<>();
+        fieldInfo.put("Field Name",binding.fieldName.getText().toString());
         fieldInfo.put("pH",binding.pH.getText().toString());
         fieldInfo.put("Organic Substance",binding.OrganicSubctance.getText().toString());
         fieldInfo.put("Nitrogen",binding.Nitrogen.getText().toString());
@@ -95,6 +95,7 @@ public class AddField extends FragmentActivity implements OnMapReadyCallback, Go
         fieldInfo.put("Iron",binding.Ferrum.getText().toString());
         fieldInfo.put("Copper",binding.Copper.getText().toString());
         fieldInfo.put("Salt",binding.Salt.getText().toString());
+        fieldInfo.put("City",cityName);
         fieldInfo.put("Latitude",latitude);
         fieldInfo.put("Longitude",longitude);
         cf.add(fieldInfo);
@@ -178,14 +179,14 @@ public class AddField extends FragmentActivity implements OnMapReadyCallback, Go
     @Override
     public void onMapLongClick(@NonNull LatLng latLng) {
         mMap.clear();
-        latitude = new MarkerOptions().position(latLng).getPosition().latitude;
-        longitude = new MarkerOptions().position(latLng).getPosition().longitude;
+        latitude = latLng.latitude;
+        longitude = latLng.longitude;
 
         Geocoder geocoder  = new Geocoder(this, Locale.getDefault());
         try {
             List<Address> addressList = geocoder.getFromLocation(latitude,longitude, 1);
             System.out.println(addressList.get(0).getAddressLine(0));
-
+            cityName = addressList.get(0).getAdminArea();
         }
         catch (IOException e)
         {
@@ -195,5 +196,11 @@ public class AddField extends FragmentActivity implements OnMapReadyCallback, Go
 
         System.out.println(latitude+"    "+ longitude);
         mMap.addMarker(new MarkerOptions().position(latLng));
+    }
+    public void back(View view)
+    {
+        Intent intent = new Intent(AddField.this, MainScreen.class);
+        startActivity(intent);
+        finish();
     }
 }
