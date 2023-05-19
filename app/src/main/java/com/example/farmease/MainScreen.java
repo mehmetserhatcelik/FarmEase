@@ -37,5 +37,11 @@ public class MainScreen extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    public void showWeather(View view)
+    {
+        Intent intent = new Intent(MainScreen.this, WeatherScreen.class);
+        startActivity(intent);
+        finish();
+    }
 
 }
