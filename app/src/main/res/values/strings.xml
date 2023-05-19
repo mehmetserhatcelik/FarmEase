@@ -20,4 +20,5 @@
     <string name="farmease_organizes__manages_and_advises_your_agriculture_related_business_for_you__string">FarmEase organizes, manages and advises your agriculture related business for you.</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_deneme">deneme</string>
+    <string name="title_activity_field_info">FieldInfo</string>
 </resources>

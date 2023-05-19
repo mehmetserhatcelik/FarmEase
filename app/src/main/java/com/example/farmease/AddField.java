@@ -95,7 +95,7 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
         fieldInfo.put("Iron",binding.Ferrum.getText().toString());
         fieldInfo.put("Copper",binding.Copper.getText().toString());
         fieldInfo.put("Salt",binding.Salt.getText().toString());
-        fieldInfo.put("City",cityName);
+        fieldInfo.put("City",binding);
         fieldInfo.put("Latitude",latitude);
         fieldInfo.put("Longitude",longitude);
         cf.add(fieldInfo);

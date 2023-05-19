@@ -69,7 +69,7 @@ public class Fields extends AppCompatActivity implements RecyclerViewInterface {
 
         EventChangeListener();
 
-        System.out.println(list.get(0).getFieldName());
+
 
     }
     private void EventChangeListener()
@@ -100,16 +100,8 @@ public class Fields extends AppCompatActivity implements RecyclerViewInterface {
     public void back(View view)
     {
         Intent intent = new Intent(Fields.this, MainScreen.class);
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getFieldName());
-
-        }
         startActivity(intent);
         finish();
-    }
-
-    public ArrayList<Field> getList() {
-        return list;
     }
 
     @Override
@@ -117,11 +109,10 @@ public class Fields extends AppCompatActivity implements RecyclerViewInterface {
 
         Intent intent = new Intent(Fields.this, FieldInfo.class);
 
-        intent.putExtra("Latitude",list.get(0).getLatitude());
-        intent.putExtra("Longitude",list.get(0).getLongitude());
-        intent.putExtra("Field Name",list.get(0).getFieldName());
-        System.out.println(list.get(0).getCityName());
-        intent.putExtra("CityName",list.get(0).getCityName());
+        intent.putExtra("Latitude",list.get(pos).getLatitude());
+        intent.putExtra("Longitude",list.get(pos).getLongitude());
+        intent.putExtra("Field Name",list.get(pos).getFieldName());
+        intent.putExtra("City Name",list.get(pos).getCityName());
 
         startActivity(intent);
         finish();

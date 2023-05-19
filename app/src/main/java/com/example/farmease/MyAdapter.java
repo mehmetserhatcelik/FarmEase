@@ -73,8 +73,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
             });
         }
     }
-    public static int getPos()
-    {
-        return pos;
-    }
 }

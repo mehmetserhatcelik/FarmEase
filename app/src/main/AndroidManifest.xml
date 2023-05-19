@@ -29,11 +29,12 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyD91dM9YogdDSbgCQEu35Gb9_s92ZQJlHA" />
 
         <activity
             android:name=".FieldInfo"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_field_info" />
         <activity
             android:name=".Fields"
             android:exported="false" />
