@@ -21,4 +21,12 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_deneme">deneme</string>
     <string name="title_activity_field_info">FieldInfo</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="ddmenu">Dropdown Menu</string>
+    <string name="select">Select Item</string>
+
+    <string name="settings_text"><u>Settings                                                                                                  </u></string>
+    <string name="content_desc_icon_image">icon image</string>
 </resources>

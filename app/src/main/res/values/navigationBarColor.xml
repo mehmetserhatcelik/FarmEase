@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="navigationColor">
+        <item name="android:background">#2E2E2E</item>
+    </style>
+
+
+
+</resources>

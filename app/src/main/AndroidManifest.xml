@@ -5,6 +5,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FarmEase"
         tools:targetApi="31">
+        <activity
+            android:name=".FieldsU"
+            android:exported="false" />
+        <activity
+            android:name=".FieldInfoForEngineers"
+            android:exported="false" />
+        <activity
+            android:name=".StockMarket"
+            android:exported="false" />
+        <activity
+            android:name=".Calendar"
+            android:exported="false" />
         <activity
             android:name=".WeatherScreen"
             android:exported="false" />
@@ -33,6 +47,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD91dM9YogdDSbgCQEu35Gb9_s92ZQJlHA" />
 
+        <activity
+            android:name=".MessageActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity android:name=".profilesettings.ProfileSettings" />
+        <activity
+            android:name=".BottomMainActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".FieldInfo"
             android:exported="false"

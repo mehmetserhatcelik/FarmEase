@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 	private Switch simpleSwitch;
 	TextView textView;
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 		FirebaseUser user = auth.getCurrentUser();
 		if(user != null && switchState == true)
 		{
-			Intent intent = new Intent(MainActivity.this , MainScreen.class);
+			Intent intent = new Intent(MainActivity.this , BottomMainActivity.class);
 			startActivity(intent);
 			finish();
 		}
@@ -117,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 					finish();
 				}
 				else {
-					Intent intent = new Intent(MainActivity.this , MainScreen.class);
+					Intent intent = new Intent(MainActivity.this , BottomMainActivity.class);
 					startActivity(intent);
 					finish();
 				}

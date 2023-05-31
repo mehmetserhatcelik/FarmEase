@@ -12,6 +12,17 @@
 	<color name="teal_700">#FF018786</color>
 	<color name="black">#FF000000</color>
 	<color name="white">#FFFFFFFF</color>
+	<color name ="app_theme">#3C8F96</color>
+	<color name="input_color">#F0F0F0</color>
+	<color name="rand1">#F5D4C1</color>
+	<color name="rand2">#DED2F9</color>
+	<color name="rand3">#E6FFFD</color>
+	<color name="f">#ADE4DB</color>
+	<color name="removalred">#C74545</color>
+	<color name="weather">#F9E2AF</color>
+	<color name="weatherinner">#009FBD</color>
+	<color name="calendar">#D9D9D9</color>
+
 
 	<color name="_bg___17_login_screen_01_ek2_color">#FFFFFF</color>
 	<color name="ellipse_143_color">#0EBE7E</color>

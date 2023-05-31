@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".profilesettings.EmailFragment">
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="205dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Change E-mail"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordEmailText"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/customlock_icon"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Enter password"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        android:password="true"
+        android:textColorHint="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/newEmailText"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/customemail_icon"
+        android:paddingStart="10dp"
+        android:background="@drawable/custom_input"
+        android:hint="Enter new email"
+        android:inputType="textPersonName"
+        android:textColorHint="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEmailText" />
+
+    <EditText
+        android:id="@+id/againEmailText"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/customemail_icon"
+        android:paddingStart="10dp"
+        android:background="@drawable/custom_input"
+        android:hint="Enter email again"
+        android:textColorHint="@android:color/darker_gray"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newEmailText" />
+
+    <Button
+        android:id="@+id/changeEmailButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:onClick="changeEmail"
+        android:text="Change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/againEmailText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

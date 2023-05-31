@@ -901,6 +901,26 @@ public class Cities extends ArrayList<City> {
                 add("Bean");
             }
         }));
+        add(new City("Konya",new ArrayList<String>(){
+            {
+                add("Hurma");
+                add("Wheat");
+                add("Chickpea");
+                add("Paddy");
+                add("Sun Flower");
+                add("Onion");
+                add("Sweetcorn");
+                add("Canola");
+                add("Lentil");
+                add("Safflower");
+                add("Potato");
+                add("Triticale");
+                add("Forage Crops");
+                add("Oat");
+                add("Rye");
+                add("Bean");
+            }
+        }));
 
 
 

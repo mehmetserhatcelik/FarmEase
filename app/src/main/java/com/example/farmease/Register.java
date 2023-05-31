@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -19,6 +20,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -43,7 +46,12 @@ public class Register extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         simpleSwitch = (Switch) findViewById(binding.switch1.getId());
-        switchState = simpleSwitch.isChecked();
+        simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                switchState = simpleSwitch.isChecked();
+            }
+        });
 
         ImageView image = binding.imageView3;
         image.setImageResource(R.drawable.visibleeye);
@@ -74,6 +82,7 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this ,"Password or email cannot be empty !",Toast.LENGTH_LONG).show();
         }
         else {
+
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
@@ -81,6 +90,13 @@ public class Register extends AppCompatActivity {
 
                     FirebaseUser user = auth.getCurrentUser();
                     DocumentReference df = fstore.collection("Users").document(user.getUid());
+                    String userID = user.getUid();
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(userID);
+
+                    HashMap<String,String> hashMap = new HashMap<>();
+                    hashMap.put("id",userID);
+                    hashMap.put("username",binding.userName.getText().toString());
+                    hashMap.put("imageURL","default");
 
                     Map<String,Object> userInfo = new HashMap<>();
                     userInfo.put("FullName",binding.userName.getText().toString());
@@ -90,12 +106,15 @@ public class Register extends AppCompatActivity {
                     if(switchState == false)
                     {
                         userInfo.put("isEngineer", "0");
+                        hashMap.put("isEngineer", "0");
                     }
                     else
                     {
                         userInfo.put("isEngineer", "1");
+                        hashMap.put("isEngineer", "1");
                     }
                     df.set(userInfo);
+                    databaseReference.setValue(hashMap);
 
                     Toast.makeText(Register.this,"You successfully signed up.",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Register.this , MainActivity.class);

@@ -20,8 +20,16 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.farmease.Models.Product;
+import com.example.farmease.Models.Products;
+import com.example.farmease.Models.WorkaroundMapFragment;
 import com.example.farmease.databinding.ActivityAddFieldBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,7 +49,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-public class AddField extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener {
+public class AddField extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMapLongClickListener, AdapterView.OnItemSelectedListener {
 
     private GoogleMap mMap;
     private FirebaseFirestore fstore;
@@ -53,6 +61,10 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
     private double longitude;
     private double latitude;
     private String cityName;
+    private ScrollView scrollView;
+
+    private Spinner spinner;
+    private Products products;
 
 
     ActivityResultLauncher<String> permissionLauncher;
@@ -64,12 +76,38 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
      binding = ActivityAddFieldBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
 
+     scrollView = binding.sc4;
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map2);
+        SupportMapFragment mapFragment = (WorkaroundMapFragment) getSupportFragmentManager().findFragmentById(R.id.map2);
+
+        ((WorkaroundMapFragment) getSupportFragmentManager().findFragmentById(R.id.map2)).setListener(new WorkaroundMapFragment.OnTouchListener() {
+            @Override
+            public void onTouch() {
+                scrollView.requestDisallowInterceptTouchEvent(true);
+            }
+        });
         mapFragment.getMapAsync(this);
         registerLauncher();
         fstore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
+
+
+        spinner = binding.ddmenu;
+        products = new Products();
+
+        String[] plants = new String[products.size()];
+
+        for (int i = 0; i < plants.length; i++) {
+            plants[i] = products.get(i).getName();
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,plants);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(this);
+
     }
 
     public void addField(View view)
@@ -79,7 +117,7 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
         CollectionReference cf = fstore.collection("Users").document(user.getUid()).collection("Fields");
 
         Map<String,Object> fieldInfo = new HashMap<>();
-        fieldInfo.put("Field Name",binding.fieldName.getText().toString());
+        fieldInfo.put("fieldName",binding.fieldName.getText().toString());
         fieldInfo.put("pH",binding.pH.getText().toString());
         fieldInfo.put("Organic Substance",binding.OrganicSubctance.getText().toString());
         fieldInfo.put("Nitrogen",binding.Nitrogen.getText().toString());
@@ -95,10 +133,14 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
         fieldInfo.put("Iron",binding.Ferrum.getText().toString());
         fieldInfo.put("Copper",binding.Copper.getText().toString());
         fieldInfo.put("Salt",binding.Salt.getText().toString());
-        fieldInfo.put("City",binding);
+        fieldInfo.put("City",cityName);
         fieldInfo.put("Latitude",latitude);
         fieldInfo.put("Longitude",longitude);
         cf.add(fieldInfo);
+
+        Intent intent = new Intent(AddField.this, BottomMainActivity.class);
+        startActivity(intent);
+        finish();
 
     }
     @Override
@@ -185,7 +227,6 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
         Geocoder geocoder  = new Geocoder(this, Locale.getDefault());
         try {
             List<Address> addressList = geocoder.getFromLocation(latitude,longitude, 1);
-            System.out.println(addressList.get(0).getAddressLine(0));
             cityName = addressList.get(0).getAdminArea();
         }
         catch (IOException e)
@@ -193,14 +234,37 @@ public class AddField extends AppCompatActivity implements OnMapReadyCallback, G
             e.printStackTrace();
         }
 
-
-        System.out.println(latitude+"    "+ longitude);
         mMap.addMarker(new MarkerOptions().position(latLng));
     }
     public void back(View view)
     {
-        Intent intent = new Intent(AddField.this, MainScreen.class);
+        Intent intent = new Intent(AddField.this, BottomMainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        if(parent.getId() == R.id.ddmenu)
+        {
+            String valueFromSpinner = parent.getItemAtPosition(position).toString();
+
+            for (int i = 0; i < products.size(); i++) {
+                if(products.get(i).getName().equals(valueFromSpinner)){
+                    Product p = products.get(i);
+                    products.setCalendar(p.getHarvestDate(),"Harvest");
+                    products.setCalendar(p.getPlantDate(),"Plant");
+                    for (int j = 0; j < p.getIrrigations(p.getPlantDate(),p.getHarvestDate(),p.getPeriod()).length; j++) {
+                        products.setCalendar(p.getIrrigations(p.getPlantDate(),p.getHarvestDate(),p.getPeriod())[j],"Irrigation");
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

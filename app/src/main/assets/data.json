@@ -1,0 +1,130 @@
+[
+  {
+    "currency": "Wheat",
+    "price": "6.709"
+  },
+  {
+    "currency": "Barley",
+    "price": "6.053"
+  },
+  {
+    "currency": "Sweetcorn",
+    "price": "5.795"
+  },
+  {
+    "currency": "Sunflower",
+    "price": "11.060"
+  },
+  {
+    "currency": "Canola",
+    "price": "12.248"
+  },
+  {
+    "currency": "Oat",
+    "price": "5.224"
+  },
+  {
+    "currency": "Chickpea",
+    "price": "23.156"
+  },
+  {
+    "currency": "Cotton",
+    "price": "33.500"
+  },
+  {
+    "currency": "Lentil",
+    "price": "14.000"
+  },
+  {
+    "currency": "Triticale",
+    "price": "5.766"
+  },
+  {
+    "currency": "Sugar Beet",
+    "price": "1.800"
+  },
+  {
+    "currency": "Pepper",
+    "price": "15.560"
+  },
+  {
+    "currency": "Brocoli",
+    "price": "20.600"
+  },
+  {
+    "currency": "Sweetberry",
+    "price": "27.600"
+  },
+  {
+    "currency": "Tomato",
+    "price": "13.750"
+  },
+  {
+    "currency": "Apple",
+    "price": "13.650"
+  },
+  {
+    "currency": "Bean",
+    "price": "22.000"
+  },
+  {
+    "currency": "Carrot",
+    "price": "18.170"
+  },
+  {
+    "currency": "Cucumber",
+    "price": "9.400"
+  },
+  {
+    "currency": "Spinach",
+    "price": "7.700"
+  },
+  {
+    "currency": "Courgette",
+    "price": "11.600"
+  },
+  {
+    "currency": "Celery",
+    "price": "11.800"
+  },
+  {
+    "currency": "Kiwi",
+    "price": "24.450"
+  },
+  {
+    "currency": "Lemon",
+    "price": "11.380"
+  },
+  {
+    "currency": "Lettuce",
+    "price": "8.440"
+  },
+  {
+    "currency": "Parsley",
+    "price": "2.910"
+  },
+  {
+    "currency": "Banana",
+    "price": "21.550"
+  },
+  {
+    "currency": "Pomegranate",
+    "price": "22.630"
+  },
+  {
+    "currency": "Potato",
+    "price": "12.220"
+  },
+  {
+    "currency": "Eggplant",
+    "price": "9.700"
+  },
+  {
+    "currency": "Garlic",
+    "price": "26.300"
+  },
+  {
+    "currency": "Onion",
+    "price": "11.900"
+  }
+]

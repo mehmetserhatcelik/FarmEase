@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/sc5"
+    tools:context=".FieldInfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/baseline_arrow_back_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.789"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.564" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="360dp"
+            android:layout_height="693dp"
+            android:background="@color/f"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="317dp"
+                android:layout_height="231dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                class="com.example.farmease.Models.WorkaroundMapFragment"
+                tools:context=".AddField" />
+
+            <ScrollView
+                android:id="@+id/scrollView3"
+                android:layout_width="320dp"
+                android:layout_height="300dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="380dp"
+                android:background="@drawable/rounded_cornerwhite"
+                android:scrollbars="vertical"
+                android:nestedScrollingEnabled="true"
+                android:padding="20dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Field Name   :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/fieldName"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:enabled="false"
+                            android:background="@drawable/rounded_corner"
+                            android:contentDescription="as"
+                            android:ems="10"
+
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textVie29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="pH                    :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/pH"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="95dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Organic Sub  :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/OrganicSubctance"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:contentDescription="as"
+                            android:ems="10"
+
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Nitrogen        :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Nitrogen"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Phosphorus :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Phosphorus"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Potassium    :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Potassium"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Soil Type       :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/soilType"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Lime               :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Lime"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Calcium         :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Calsium"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Magnesium :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Magnesium"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Manganese :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Manganese"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Zinc                :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Zinc"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Boron            :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Boron"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Iron                :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Ferrum"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Copper         :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Copper"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/oxa"
+                            android:text="Salt               :"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/Salt"
+                            android:layout_marginLeft="25dp"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/rounded_corner"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+
+                            android:padding="10dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="    Location    "
+                android:textSize="25sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/oxa"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_cornerwhite"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="320dp"
+                android:background="@drawable/rounded_cornerwhite"
+                android:fontFamily="@font/oxa"
+                android:text="    Soil Analysis    "
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</ScrollView>

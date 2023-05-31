@@ -2,10 +2,21 @@
 <resources>
 	<!-- 17_login_screen_01 styles -->
 
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
+		<item name="colorControlNormal">@color/white</item>
+	</style>
+
+	<style name="MyStyle" parent="@android:style/Widget.TextView">
+		<item name="android:background">@drawable/round_button</item>
+		<item name="android:textColor">@color/white</item>
+	</style>
+	<style name="roundImage" parent="">
+		<item name="cornerFamily">rounded</item>
+		<item name="cornerSize">20dp</item>
+		<item name="color">@color/white</item>
 	</style>
 
 </resources>

@@ -10,8 +10,17 @@ public class Field {
     String cityName;
     double latitude;
     double longitude;
+    String uid;
     ArrayList<City> cities = new Cities();
 
+    public Field(String uid,double longitude, double latitude, String cityName, String fieldName)
+    {
+        this.uid =uid;
+        this.latitude =latitude;
+        this.longitude = longitude;
+        this.cityName = cityName;
+        this.fieldName = fieldName;
+    }
     public City getCity()
     {
         City result = cities.get(0);
@@ -23,20 +32,16 @@ public class Field {
         }
         return result;
     }
+    public String getuid()
+    {
+        return uid;
+    }
     public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
     public double getLongitude() {
         return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
     }
 
     public String getCityName()
