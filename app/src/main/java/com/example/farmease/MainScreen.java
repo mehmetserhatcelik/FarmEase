@@ -211,19 +211,6 @@ public class MainScreen extends AppCompatActivity implements RecyclerViewInterfa
         startActivity(intent);
         finish();
     }
-    public void goMessages(View view)
-    {
-        Intent intent = new Intent(MainScreen.this, ChatPageForEngineers.class);
-        startActivity(intent);
-        finish();
-    }
-    public void goFields(View view)
-    {
-        Intent intent = new Intent(MainScreen.this, Fields.class);
-
-        startActivity(intent);
-        finish();
-    }
     public void showWeather(View view)
     {
         Intent intent = new Intent(MainScreen.this, WeatherScreen.class);

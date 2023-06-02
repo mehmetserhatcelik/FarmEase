@@ -62,14 +62,14 @@ public class HomeFragment extends Fragment implements RecyclerViewInterface {
     private ImageView imageView;
     private DecimalFormat df = new DecimalFormat("#.##");
     private EmptyAdapter emptyAdapter;
-    String downloadUrl;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
-        getImage();
+
     }
 
     @Override
@@ -109,7 +109,9 @@ public class HomeFragment extends Fragment implements RecyclerViewInterface {
         binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.setSwitchState(true);
                 logOut(v);
+
             }
         });
         binding.calendar.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +141,8 @@ public class HomeFragment extends Fragment implements RecyclerViewInterface {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ImageView profileIcon = view.findViewById(R.id.asas);
-        Picasso.get().load(downloadUrl).into(profileIcon);
+        profileIcon.setVisibility(View.INVISIBLE);
+        getImage(view);
     }
 
     private void EventChangeListener() {
@@ -249,13 +252,16 @@ public class HomeFragment extends Fragment implements RecyclerViewInterface {
         getActivity().finish();
     }
 
-    private void getImage() {
+    private void getImage(View view){
         fstore.collection("Users").document(auth.getCurrentUser().getUid()).addSnapshotListener((value, error) -> {
-            if (error != null)
-                Toast.makeText(getContext(), error.getLocalizedMessage(), Toast.LENGTH_LONG);
-            if (value != null) {
-                Map<String, Object> data = value.getData();
-                downloadUrl = (String) data.get("icon");
+            if(error!=null)
+                Toast.makeText(getContext(),error.getLocalizedMessage(),Toast.LENGTH_LONG);
+            if(value!=null){
+                Map<String,Object> data = value.getData();
+                String downloadUrl = (String) data.get("icon");
+                ImageView profileIcon = view.findViewById(R.id.asas);
+                Picasso.get().load(downloadUrl).into(profileIcon);
+                profileIcon.setVisibility(View.VISIBLE);
             }
         });
     }

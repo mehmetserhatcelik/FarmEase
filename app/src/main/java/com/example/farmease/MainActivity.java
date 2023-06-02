@@ -9,6 +9,7 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 	private FirebaseFirestore fstore;
 	private Switch simpleSwitch;
 	TextView textView;
+	static boolean switchState;
 
 
 	@Override
@@ -43,9 +45,15 @@ public class MainActivity extends AppCompatActivity {
 		auth = FirebaseAuth.getInstance();
 		fstore = FirebaseFirestore.getInstance();
 		simpleSwitch = (Switch) findViewById(binding.switch1.getId());
-		boolean switchState = simpleSwitch.isChecked();
+		simpleSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				switchState = simpleSwitch.isChecked();
+			}
+		});
+
 		FirebaseUser user = auth.getCurrentUser();
-		if(user != null && switchState == true)
+		if(user != null && switchState == false)
 		{
 			Intent intent = new Intent(MainActivity.this , BottomMainActivity.class);
 			startActivity(intent);
@@ -124,5 +132,9 @@ public class MainActivity extends AppCompatActivity {
 				}
 			}
 		});
+	}
+	public static void setSwitchState(boolean b)
+	{
+		switchState = b;
 	}
 }

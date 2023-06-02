@@ -27,15 +27,13 @@ public class ProfileFragment extends Fragment {
     FirebaseAuth firebaseAuth;
 
     String userName;
-    String downloadUrl;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         firebaseFirestore=FirebaseFirestore.getInstance();
         firebaseAuth=FirebaseAuth.getInstance();
-        getImage();
-        getUsername();
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,14 +42,21 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        TextView usernameText = view.findViewById(R.id.userName);
+
+
         ImageView profileIcon = view.findViewById(R.id.imageProfile);
-        usernameText.setText(userName);
-        Picasso.get().load(downloadUrl).into(profileIcon);
+        profileIcon.setVisibility(View.INVISIBLE);
+        TextView usernameText = view.findViewById(R.id.userName);
+        usernameText.setVisibility(View.INVISIBLE);
+        super.onViewCreated(view, savedInstanceState);
+        getImage(view);
+        getUsername(view);
+
+
         view.findViewById(R.id.logOutButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MainActivity.setSwitchState(true);
                 logOut(view);
             }
         });
@@ -98,23 +103,31 @@ public class ProfileFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void getUsername(){
+    private void getUsername(View view){
         firebaseFirestore.collection("Users").document(firebaseAuth.getCurrentUser().getUid()).addSnapshotListener((value, error) -> {
             if(error!=null)
                 Toast.makeText(getContext(),error.getLocalizedMessage(),Toast.LENGTH_LONG);
             if(value!=null){
                Map<String,Object> data = value.getData();
                userName = (String) data.get("FullName");
+                TextView usernameText = view.findViewById(R.id.userName);
+                usernameText.setText(userName);
+                usernameText.setVisibility(View.VISIBLE);
             }
         });
     }
-    private void getImage(){
+    private void getImage(View view){
         firebaseFirestore.collection("Users").document(firebaseAuth.getCurrentUser().getUid()).addSnapshotListener((value, error) -> {
-            if(error!=null)
-                Toast.makeText(getContext(),error.getLocalizedMessage(),Toast.LENGTH_LONG);
+            if(error!=null) {
+                Toast.makeText(getContext(), error.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                return;
+            }
             if(value!=null){
                 Map<String,Object> data = value.getData();
-                downloadUrl = (String) data.get("icon");
+                String downloadUrl = (String) data.get("icon");
+                ImageView profileIcon = view.findViewById(R.id.imageProfile);
+                Picasso.get().load(downloadUrl).into(profileIcon);
+                profileIcon.setVisibility(View.VISIBLE);
             }
         });
     }

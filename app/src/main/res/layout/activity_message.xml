@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             app:popupTheme="@style/Widget.AppCompat.PopupMenu"
             app:theme="@style/AppTheme"
-            android:background="@color/design_default_color_primary_dark"
+            android:background="@color/app_theme"
             >
 
             <de.hdodenhof.circleimageview.CircleImageView
